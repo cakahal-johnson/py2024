@@ -1,0 +1,6 @@
+flask
+requests
+gunicorn
+flask-SQLALchemy
+flask-wtf
+flask-bcrypt

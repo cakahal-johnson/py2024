@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+
+
+    {% for message in form.Day.errors %}
+    <div>{{ message }}</div>
+    {% endfor %}
+
+    {% for message in form.Hour.errors %}
+    <div>{{ message }}</div>
+    {% endfor %}
+
+    {% for message in form.Fullname.errors %}
+    <div>{{ message }}</div>
+    {% endfor %}
+
+    {% for message in form.No_persons.errors %}
+    <div>{{ message }}</div>
+    {% endfor %}
+
+
+    {% for message in form.Phone.errors %}
+    <div>{{ message }}</div>
+    {% endfor %}
+
+
+    <div class="form-group">
+        {{ form.Day.label(class="form-control") }}
+        {{ form.Day(class="form-control-lg") }}
+
+    </div>
+    <div class="form-group">
+        {{ form.Hour.label }}
+        {{ form.Hour(class="form-control-lg") }}
+
+    </div>
+
+
+    <div class="form-group">
+        {{ form.Fullname.label }}
+        {{ form.Fullname(class="form-control-lg") }}
+
+    </div>
+
+    <div class="form-group">
+        {{ form.No_persons.label }}
+        {{ form.No_persons(class="form-control-lg") }}
+
+    </div>
+
+    <div class="form-group">
+        {{ form.Phone.label }}
+        {{ form.Phone(class="form-control-lg") }}
+
+    </div>
+
+
+    <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+
+    </div>
+
+
+</form>
+
+{% endblock content %}

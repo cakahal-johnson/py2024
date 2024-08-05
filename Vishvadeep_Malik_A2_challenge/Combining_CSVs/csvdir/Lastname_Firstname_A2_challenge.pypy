@@ -1,0 +1,31 @@
+import pandas as pd
+import os
+
+# copy a new system file path
+directory = ""
+
+def combine_csv_files(directory, output_filename):
+  # Initialize an empty list to store the DataFrames
+  dfs = []
+  # Loop through all the files in the directory
+  for filename in os.listdir(directory):
+    # Check if the file has a .csv extension
+    if filename.endswith(".csv"):
+      # Try to load the file as a DataFrame with key as its index
+      try:
+        df = pd.read_csv(os.path.join(directory, filename), index_col="key")
+        # Append the DataFrame to the list
+        dfs.append(df)
+      # If there is an error, skip the file and continue
+      except:
+        continue
+  # Concatenate all the DataFrames vertically into a single DataFrame
+  combined_df = pd.concat(dfs)
+  # Reorder the columns in alphabetical order
+  combined_df = combined_df.reindex(sorted(combined_df.columns), axis=1)
+  # Drop any column that has more than 50% nulls
+  combined_df = combined_df.dropna(thresh=len(combined_df) * 0.5, axis=1)
+  # Reorder the rows on their index
+  combined_df = combined_df.sort_index()
+  # Save the DataFrame as a CSV file to the output_filename
+  combined_df.to_csv(output_filename)

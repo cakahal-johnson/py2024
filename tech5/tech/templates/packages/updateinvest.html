@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+                        {% include "_messages.html" %}
+            {% if updateinvest %}
+            <h2 class="text-center mt-5" >Add an Investment Package</h2>
+            <form action="" method="POST">
+                <input type="text" name="invest" class="form-control" value="{{updateinvest.name}}">
+                <input type="submit" value="Update Invest Package" class="btn btn-info mt-2">
+
+            </form>
+            <a href="{{ url_for(invests) }}" class="btn btn-warning" style="margin-top: -65px; margin-left: 140px">Cancel</a>
+
+            {% else %}
+            <h2 class="text-center mt-5" >Add a Loan Package</h2>
+<!--            {% include "_messages.html" %}-->
+            <form action="" method="POST">
+                <input type="text" name="loan" class="form-control" value="{{updateloan.name}}">
+                <input type="submit" value="Update Loan Package" class="btn btn-info mt-2">
+
+            </form>
+            <a href="{{ url_for(loan) }}" class="btn btn-warning" style="margin-top: -65px; margin-left: 140px">Cancel</a>
+
+            {% endif %}
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

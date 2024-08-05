@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+
+
+
+{% block content%}
+
+    <!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Form Section -->
+
+    <div class="container justify-center jumbotron" style="margin-bottom: 2em; margin-top: 2em;">
+        <form method="POST" action="" novalidate>
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend >Reservation</legend>
+
+                <div class="form-group">
+                    {{ form.Hour.label(class='form-control-label') }}
+                    {% if form.Hour.errors %}
+                        {{ form.Hour(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Hour.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.Hour(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.Day.label(class='form-control-label') }}
+                    {% if form.Day.errors %}
+                        {{ form.Day(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Day.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.Day(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Fullname.label(class='form-control-label') }}
+                    {% if form.Fullname.errors %}
+                        {{ form.Fullname(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Fullname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.Fullname(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.No_persons.label(class='form-control-label') }}
+                    {% if form.No_persons.errors %}
+                        {{ form.No_persons(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.No_persons.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.No_persons(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Phone.label(class='form-control-label') }}
+                    {% if form.Phone.errors %}
+                        {{ form.Phone(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Phone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.Phone(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+            </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class='btn btn-success') }}
+                </div>
+        </form>
+    </div>
+
+{% endblock content %}

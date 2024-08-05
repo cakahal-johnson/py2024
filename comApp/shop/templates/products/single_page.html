@@ -1,0 +1,155 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<!--HERE NAV BAR STARTS -->
+<div class="container">
+    <!--        {% include 'admin/_messages.html' %}-->
+
+    <!--NabvBar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="">All Products</a>
+                    </li>
+
+                    <!--                      HERE IS BRAND NAV BAR DISPLAY-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Brands
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% for brand in brands %}
+                            <li><a class="dropdown-item"
+                                   href="{{url_for('get_brand', id = brand.id)}}">{{brand.name}}</a></li>
+                            {% endfor %}
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">FAQ Please add from Admin Database</a></li>
+                        </ul>
+                    </li>
+                    <!--                      HERE IS CATEGORIES NAV BAR DISPLAY-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% for category in categories %}
+                            <li><a class="dropdown-item" href="{{url_for('get_category', id = category.id)}}">{{category.name}}</a>
+                            </li>
+                            {% endfor %}
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">FAQ Please add from Admin Database</a></li>
+                        </ul>
+                    </li>
+
+<!--                    NAV CART SECTION-->
+                     <li class="nav-item">
+                        <a class="nav-link" disabled="" tabindex="-1" href="">Cart ({{session['Shoppingcart']|length}})</a>
+                    </li>
+
+
+                </ul>
+                <form class="d-lg-inline-flex">
+                    <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+<!--HERE NAV BAR ENDS -->
+
+<!--HERE THE BODY STARTS-->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6" id="b_image">
+            <img src="{{ url_for('static', filename='images/' + product.image_1 )}}" alt="{{product.name}}"
+                 width="400" height="400">
+        </div>
+
+        <div class="col-md-6">
+            <h4>Product Name: {{ product.name }}</h4>
+            <hr>
+            <p>product price: ${{ product.name }}</p>
+            {% if product.discount > 0 %}
+            <p>Discount: {{product.discount }} %</p>
+            {% endif %}
+            <hr>
+            <b>Product Description</b>
+            <p>{{product.desc}}</p>
+            <hr>
+
+<!--            HERE IS FOR THE ADDING CART-->
+            <form action="{{url_for('AddCart')}}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="product_id" value="{{product.id}}">
+                <button type="submit" class="btn btn-sm btn-warning">Add cart</button>
+                <lable for="" >Quantity:</lable>
+                <input type="number" name="quantity" id="" value="1" min="1" max="{{product.stock}}">
+
+                {% set colors = product.colors.split(',') %}
+                <lable for="colors">Colors:</lable>
+                <select name="colors" id="">
+                    {% for color in colors %}
+                    {% set col = color.split(':') %}
+                    <option value="{{col[0]}}">{{col[0]|capitalize}}</option>
+                    {% endfor %}
+                </select>
+
+            </form>
+
+<!--            <a href="" class="btn btn-warning"> Add to Cart</a>-->
+        </div>
+    </div>
+
+<!--        HERE DISPLAY THE OTHER PRODUCT IMAGE-->
+    <div class="row">
+        <div class="col-md-12 mt-3" id="s_image">
+            <hr>
+            <img src="{{url_for('static', filename='image/' + product.image_1)}}" alt="{{product.name}}"
+                 width="120" height="120" class="p-3">
+
+            <img src="{{url_for('static', filename='image/' + product.image_2)}}" alt="{{product.name}}"
+                 width="120" height="120" class="p-3">
+
+            <img src="{{url_for('static', filename='image/' + product.image_3)}}" alt="{{product.name}}"
+                 width="120" height="120" class="p-3">
+        </div>
+
+    </div>
+    
+</div>
+
+<!--HERE THE BODY ENDS-->
+
+
+<!--JAVASCRIPT FOR WHEN YOU CLICK THE SMALL IMG TO DISPLAY IN THE BIG ONE-->
+<script>
+    var b_image = document.getElementById('b_image');
+    var s_image = document.getElementById('s_image').getElementsByTagName('img');
+
+    for (var i = 0; i < s_image.length; i++){
+        s_image[i].addEventListener('click', full_image);
+    }
+
+    function full_image() {
+        var ImageSRC = this.getAttribute('src');
+        b_image.innerHTML = "<img src=' + ImageSRC +' width='400' height='400'>"
+    }
+
+</script>
+
+{% endblock content %}

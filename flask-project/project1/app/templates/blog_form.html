@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        background: #4f5050;
+    }
+
+    .glow{
+        text-shadow: 5px 3px 5px lightgreen;
+        color: #1c1f23;
+    }
+
+    .newsletter{
+        position: absolute;
+        top: 550px;
+        left: 30%;
+        padding: 15px;
+        text-align: center;
+        background-image: linear-gradient(to top right, dimgray, lightgray, slategrey);
+    }
+
+    .flex-box{
+        display: flex;
+    }
+    .label-box{
+        width: 30%;
+        margin-left: 50px;
+    }
+
+    .article-box{
+        width: 60%;
+    }
+
+    .form-section{
+        margin-top: 30px;
+        align-items: center;
+        color: whitesmoke;
+    }
+
+    .form-section label{
+        width: 100%;
+    }
+
+    .form-section textarea{
+        width: 100%;
+        margin-right: 35px;
+    }
+
+
+</style>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post">Sample Post</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="create-post">Create post</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="masthead" style="background-image: url({{ url_for('static', filename='images/home-bg.jpg') }})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1 class="glow">Create your own Blog</h1>
+                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+<!--        newsletter section -->
+        <section  >
+            <div class="newsletter">
+                <h2>please subscribe for more info!</h2>
+                <input class="w-75 mx-xxl-5" type="text" name="newsletter">
+                <button class="btn-outline-danger px-3 text-red-50 w-auto">Sumit</button>
+            </div>
+
+        </section>
+
+        <!--        newsletter section end -->
+
+
+<section class="form-section" >
+     <form action="" method="post">
+         <div class="flex-box">
+             <div class="label-box">
+            <lable>Title:</lable>
+            <br>
+            <input id="tit" type="text" name="title" placeholder="Title of article"><br>
+            <lable>Article caption:</lable>
+            <br>
+            <input id="cap" type="text" name="caption" placeholder="Article Caption"><br>
+            <lable>Author:</lable>
+            <br>
+            <input id="aut" type="text" name="author" placeholder="Author"><br>
+            <lable>Date:</lable>
+            <br>
+            <input id="dat" type="date" name="dat" placeholder="date/month day, year."><br>
+
+        </div>
+
+         <div class="article-box">
+             <lable>Article:</lable>
+            <br>
+            <textarea id="art" name="article" placeholder="what's on your mind" cols="30" rows="10"></textarea><br>
+            <button class="btn-outline-secondary px-2 w-25 text-center">upload article</button>
+         </div>
+         </div>
+
+
+    </form>
+</section>
+
+
+</body>
+</html>

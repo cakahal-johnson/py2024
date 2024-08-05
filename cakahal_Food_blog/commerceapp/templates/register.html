@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+    <div style="background-image: url( 'static/img/book-bg.jpg' )">
+        <div class="container"><br>
+            <div style="margin-left: 25% " class="row">
+                <div class="jumbotron col-md-6 offset-md-3" style="box-shadow: 2px 3px 3px #c0c0c0, 2px 3px 3px #cccccc">
+                    <legend class="border-button mb-4">Join Today</legend>
+<!--                    {% from "includes/_formhelpers.html" import render_field %}-->
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }}
+
+                            <div class="form-group">
+                                {{render_field(form.username, class="form-control")}}
+                            </div>
+                            <div class="form-group">
+                                {{render_field(form.email, class="form-control")}}
+                            </div>
+                            <div class="form-group">
+                                {{render_field(form.password, class="form-control")}}
+                            </div>
+                            <div class="form-group">
+                                {{render_field(form.confirm_password, class="form-control")}}
+                            </div>
+
+                            <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+
+<!--                        <div class="form-group">-->
+<!--                            {{ form.submit(class="btn btn-primary btn-outline-info") }}-->
+<!--                        </div>-->
+                    </form>
+                    <div class="border-top pt-3">
+                            <small class="text-muted">
+                                Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
+                            </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--     ANOTHER TYPE OF FROM FIELD -->
+
+<!--    <div style="background-image: url( 'static/img/book-bg.jpg' )">-->
+<!--        <div class="container"><br>-->
+<!--            <div style="margin-left: 25% " class="row">-->
+<!--                <div class="jumbotron col-md-6 offset-md-3 " style="opacity: 0.7">-->
+<!--                    <form method="POST" action="">-->
+<!--                        {{ form.hidden_tag() }}-->
+<!--                        <fieldset class="form-group">-->
+<!--                            <legend class="border-button mb-4">Join Today</legend>-->
+<!--                            <div class="form-group">-->
+<!--                                {{ form.username.label(class="form-control-label") }}-->
+
+<!--                                {% if form.username.errors %}-->
+<!--                                    {{ form.username(class="form-control form-control-lg is-invalid") }}-->
+<!--                                    <div class="invalid-feedback text-danger">-->
+<!--                                        {% for error in form.username.errors %}-->
+<!--                                            <span> {{ error }}</span>-->
+<!--                                        {% endfor %}-->
+<!--                                    </div>-->
+<!--                                    {% else %}-->
+<!--                                        {{ form.username(class="form-control form-control-lg") }}-->
+<!--                                {% endif %}-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                {{ form.email.label(class="form-control-label") }}-->
+<!--                                 {% if form.email.errors %}-->
+<!--                                    {{ form.email(class="form-control form-control-lg is-invalid") }}-->
+<!--                                    <div class="invalid-feedback text-danger">-->
+<!--                                        {% for error in form.email.errors %}-->
+<!--                                            <span> {{ error }}</span>-->
+<!--                                        {% endfor %}-->
+<!--                                    </div>-->
+<!--                                    {% else %}-->
+<!--                                        {{ form.email(class="form-control form-control-lg") }}-->
+<!--                                {% endif %}-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                {{ form.password.label(class="form-control-label") }}-->
+<!--                                 {% if form.password.errors %}-->
+<!--                                    {{ form.password(class="form-control form-control-lg is-invalid") }}-->
+<!--                                    <div class="invalid-feedback text-danger">-->
+<!--                                        {% for error in form.password.errors %}-->
+<!--                                            <span> {{ error }}</span>-->
+<!--                                        {% endfor %}-->
+<!--                                    </div>-->
+<!--                                    {% else %}-->
+<!--                                        {{ form.password(class="form-control form-control-lg") }}-->
+<!--                                {% endif %}-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                {{ form.confirm_password.label(class="form-control-label") }}-->
+<!--                                 {% if form.confirm_password.errors %}-->
+<!--                                    {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}-->
+<!--                                    <div class="invalid-feedback text-danger">-->
+<!--                                        {% for error in form.confirm_password.errors %}-->
+<!--                                            <span> {{ error }}</span>-->
+<!--                                        {% endfor %}-->
+<!--                                    </div>-->
+<!--                                    {% else %}-->
+<!--                                        {{ form.confirm_password(class="form-control form-control-lg") }}-->
+<!--                                {% endif %}-->
+<!--                            </div>-->
+<!--                        </fieldset>-->
+<!--                        <div class="form-group">-->
+<!--                            {{ form.submit(class="btn btn-primary btn-outline-info opacity-1") }}-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                    <div class="border-top pt-3">-->
+<!--                            <small class="text-muted">-->
+<!--                                Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>-->
+<!--                            </small>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+
+
+
+{% endblock content %}

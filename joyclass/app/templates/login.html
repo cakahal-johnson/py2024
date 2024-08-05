@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+     {% from "includes/_messages.html" import render_field %}
+
+
+     <div class="container">
+        <h1 class="">Login</h1>
+     </div>
+
+     {% from "includes/_formhelpers.html" import render_field %}
+
+
+    <div class="container">
+        <form method="POST" action="">
+
+            <div class="form-group">
+            {{render_field(form.email, class_="form-control")}}
+            </div>
+
+            <div class="form-group">
+            {{render_field(form.password, class_="form-control")}}
+            </div>
+
+            <div class="form-check">
+            {{ form.remember(class="form-check-input") }}
+            {{ form.remember.label(class="form-check-label") }}
+            </div>
+
+            <p><input type="submit" class="btn btn-info" value="Login"></p>
+        </form>
+
+        <small class="text-muted">
+            <a href="/">Forget Password ?</a>
+        </small>
+
+
+    </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% include '_messages.html'  %}
+
+<!--{% include 'admin/_nav.html' %}-->
+
+<!--displaying the package table-->
+<div class="container mt-5">
+    <table class="table-sm table table-striped table-condensed table-hover">
+        <thead>
+        <th>S/n</th>
+        <th>Name</th>>
+        <th>Edit</th>
+        <th>Delete</th>
+        </thead>
+        <tbody>
+
+        {% if invests %}
+            {% for invest in invests %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{invest.name}}</td>
+                <td><a href="{{ url_for('updateinvest', id=invest.id) }}" class="btn-outline-info btn btn-sm">Edit</a></td>
+                <td><a href="" class="btn-outline-info btn btn-sm">Delete</a></td>
+            </tr>
+            {% endfor %}
+        {% else %}
+             {% for loan in loans %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{loan.name}}</td>
+                <td><a href="{{ url_for('updateloan', id=loan.id) }}" class="btn-outline-info btn btn-sm">Edit</a></td>
+                <td><a href="" class="btn-outline-info btn btn-sm">Delete</a></td>
+            </tr>
+            {% endfor %}
+        { % endif % }
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

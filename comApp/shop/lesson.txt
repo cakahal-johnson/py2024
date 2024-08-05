@@ -1,0 +1,41 @@
+# @app.route('/empty')
+# def empty_cart():
+#     try:
+#         session.clear() ///this we remove all with login as well
+#         return redirect(url_for('home'))
+#     except Exception as e:
+#         print(e)
+
+# for search section
+# {% for product in products %}
+# {{product.name}}
+# {% endfor %}
+
+# patch_request_class(app)
+# #set maximum file size, default is 16MB patch_request_class
+
+
+# FOR FLASK MIGRATE
+# you have to be in myvenv mode v35
+# AFTER YOU REMOVE THE COMMENT
+# GOTO THE TERMINAL AND WIRTE BELOW
+# Flask db init ///error occur create a model from your model the f_name then re run the below
+#export FLASK_APP=run.py
+# Flask db init
+# flask db migrate -m "initial migrations
+# flask db upgrade
+
+
+# FOR PDF KIT DOWNLOAD A FLASKPDFKIT PYTHON FROM GOOGLE v39
+# FROM TERMINAL
+# pip install pdfkit
+
+#  response.headers['content-Disposition'] = 'atteched; filename='+invoice+'.pdf' ///like this is to make it a download
+#  response.headers['content-Disposition'] = 'inline: filename='+invoice+'.pdf' ///like this is to display in new tab
+
+
+# PAYMENT ORDER
+# https://stripe.com/docs/payments/checkout/migration
+# GET TO THE CLIENTS SIDE CODE 'PAY'
+# https://stripe.com/docs/payments/checkout/migration#client-products-client-code
+# then pip install stripe

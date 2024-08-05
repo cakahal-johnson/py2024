@@ -1,0 +1,169 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+    <div style="background-image: url( 'static/img/book-bg.jpg' )">
+        <div class="container"><br>
+            <div style="margin-left: 25% " class="row">
+                <div class="jumbotron col-md-8 offset-md-4 " style="opacity: 0.7">
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }}
+                        <fieldset class="form-group">
+                            <legend class="border-button mb-4">Let's Take Your Orders!</legend>
+                            <div class="form-group">
+                                {{ form.Foodname.label(class="form-control-label") }}
+
+                                {% if form.Foodname.errors %}
+                                    {{ form.Foodname(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback text-danger">
+                                        {% for error in form.foodname.errors %}
+                                            <span> {{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                        {{ form.Foodname(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form.Foodtype.label(class="form-control-label") }}
+                                 {% if form.Foodtype.errors %}
+                                    {{ form.Foodtype(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback text-danger">
+                                        {% for error in form.Foodtype.errors %}
+                                            <span> {{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                        {{ form.Foodtype(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form.FoodQuantity.label(class="form-control-label") }}
+                                 {% if form.FoodQuantity.errors %}
+                                    {{ form.FoodQuantity(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback text-danger">
+                                        {% for error in form.FoodQuantity.errors %}
+                                            <span> {{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                        {{ form.FoodQuantity(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form.Address.label(class="form-control-label") }}
+                                 {% if form.Address.errors %}
+                                    {{ form.Address(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback text-danger">
+                                        {% for error in form.Address.errors %}
+                                            <span> {{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                        {{ form.Address(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form.Delivery_Time.label(class="form-control-label") }}
+                                 {% if form.Delivery_Time.errors %}
+                                    {{form.Delivery_Time(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback text-danger">
+                                        {% for error in form.Delivery_Time.errors %}
+                                            <span> {{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                        {{ form.Delivery_Time(class="form-control form-control-lg") }}
+                                {% endif %}
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-primary btn-outline-info opacity-1") }}
+                        </div>
+                    </form>
+                    <div class="border-top pt-3">
+                            <small class="text-muted">
+                                Do You wish to Book a Reservation? <a class="ml-2" href="{{ url_for('tables') }}">Book Here!</a>
+                            </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--<form  method="POST"  action="">-->
+    <!--        {{ form.hidden_tag() }}-->
+
+
+    <!--    {% for message in form.Foodname.errors %}-->
+    <!--         <div>{{ message }}</div>-->
+    <!--    {% endfor %}-->
+
+    <!--     {% for message in form.Foodtype.errors %}-->
+    <!--         <div>{{ message }}</div>-->
+    <!--    {% endfor %}-->
+
+    <!--     {% for message in form.FoodQuantity.errors %}-->
+    <!--         <div>{{ message }}</div>-->
+    <!--    {% endfor %}-->
+
+    <!--     {% for message in form.Delivery_Time.errors %}-->
+    <!--         <div>{{ message }}</div>-->
+    <!--    {% endfor %}-->
+
+
+    <!--     {% for message in form.Address.errors %}-->
+    <!--         <div>{{ message }}</div>-->
+    <!--    {% endfor %}-->
+
+
+
+    <!--        <div class="form-group">-->
+    <!--            {{ form.Foodname.label(class="form-control") }}-->
+    <!--            {{ form.Foodname(class="form-control-lg") }}-->
+
+    <!--        </div>-->
+    <!--        <div class="form-group">-->
+    <!--            {{ form.Foodtype.label }}-->
+    <!--            {{ form.Foodtype(class="form-control-lg") }}-->
+
+    <!--        </div>-->
+
+
+    <!--        <div class="form-group">-->
+    <!--            {{ form.FoodQuantity.label }}-->
+    <!--            {{ form.FoodQuantity(class="form-control-lg") }}-->
+
+    <!--        </div>-->
+
+    <!--     <div class="form-group">-->
+    <!--            {{ form.Address.label }}-->
+    <!--            {{ form.Address(class="form-control-lg") }}-->
+
+    <!--        </div>-->
+
+    <!--     <div class="form-group">-->
+    <!--            {{ form.Delivery_Time.label }}-->
+    <!--            {{ form.Delivery_Time(class="form-control-lg") }}-->
+
+    <!--        </div>-->
+
+
+
+    <!--        <div class="form-group">-->
+    <!--        {{ form.submit(class="btn btn-outline-info") }}-->
+
+    <!--        </div>-->
+
+
+
+
+    <!--    </form>-->
+
+{% endblock content %}

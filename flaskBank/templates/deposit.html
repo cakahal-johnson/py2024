@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2>Deposit Fund</h2>
+    <br>
+    <hr>
+    <div class="container">
+        <form action="/deposit" method="post">
+            <div class="mb-3">
+                <label class="form-label">Deposit</label>
+                <input type="text" name="deposit" class="form-control" placeholder="$0.00">
+
+             </div>
+
+            <button type="submit" class="btn mt-3 btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock content %}

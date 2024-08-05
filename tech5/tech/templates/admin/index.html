@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% include '_messages.html'  %}
+
+{% include '_nav.html' %}
+
+<!--displaying the package table-->
+<div class="container mt-5">
+    <table class="table-sm table table-striped table-condensed table-hover">
+        <thead>
+        <th>S/n</th>
+        <th>Package</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>Invest</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </thead>
+        <tbody>
+
+            {% for package in packages %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{package.name}}</td>
+                <td>{{package.price}}</td>
+                <td>{{package.discount}}</td>
+                <td>{{package.invest.name}}</td>
+                <td><img src="{{url_for('static', filename='images/' +package.image_1)}}" width="50" height="40" alt=""></td>
+                 <td><a href="{{ url_for('updatepackage', id=product.id) }}" class="btn-outline-info btn btn-sm">Edit</a></td>
+                <td><a href="{{ url_for('updatepackage', id=product.id) }}" class="btn-outline-danger btn btn-sm">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

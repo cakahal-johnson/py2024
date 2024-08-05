@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h2>Deposit Funds</h2>
+        <small>Welcome to the Bank: <strong> {{ session['user'] }} </strong> <br>
+        could like to make a Deposit today?
+        </small>
+
+    </div>
+
+    <br>
+    <hr>
+    <div class="container">
+        <form action='/deposit' method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Deposit amount</label>
+                <input type="text" name="deposit" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn mt-2 btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

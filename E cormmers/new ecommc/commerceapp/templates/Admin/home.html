@@ -1,0 +1,124 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+
+
+<div class="container">
+  <h2>Users Table</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>s/n</th>
+        <th>username</th>
+        <th>Email</th>
+         <th colspan="2">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+           <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td href="">Edit</td>
+          <td>Delete</td>
+        </tr>
+       {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container">
+  <h2>Food Table</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>s/n</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>foodname</th>
+        <th>foodtype</th>
+        <th>foodqty</th>
+        <th>Date ordered</th>
+        <th>Address</th>
+        <th>Delivery time</th>
+         <th colspan="2">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for foods in food %}
+        <tr>
+           <td>{{ current_user.id }}</td>
+          <td>{{ current_user.username }}</td>
+          <td>{{ current_user.email }}</td>
+          <td>{{ foods.Foodname }}</td>
+          <td>{{ foods.Foodtype }}</td>
+          <td>{{ foods.Foodqty }}</td>
+          <td>{{ foods.date_orderd }}</td>
+          <td>{{ foods.Address }}</td>
+           <td>{{ foods.Delivery_Time }}</td>
+
+          <td href="">Edit</td>
+          <td>Delete</td>
+        </tr>
+       {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+  <h2>Reservation</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>s/n</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Day Booked</th>
+        <th>Hour</th>
+        <th>Date Ordered</th>
+        <th>No of Persons</th>
+        <th>Phone Number</th>
+
+         <th colspan="2">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for tables in table %}
+        <tr>
+           <td>{{ current_user.id }}</td>
+          <td>{{ current_user.username }}</td>
+          <td>{{ current_user.email }}</td>
+          <td>{{ tables.Day }}</td>
+          <td>{{ tables.Hour }}</td>
+          <td>{{ tables.date_orderd }}</td>
+          <td>{{ tables.No_persons }}</td>
+
+          <td>{{ tables.Phone }}</td>
+
+
+          <td href="">Edit</td>
+          <td>Delete</td>
+        </tr>
+       {% endfor %}
+
+    </tbody>
+  </table>
+</div>
+<div class="container">
+  <h1>Post Contents</h1>
+  <a href="foodblog.html">Create Menu Post</a>
+   <a href="newsblog.html">Create News Post</a>
+</div>
+
+{% endblock content %}

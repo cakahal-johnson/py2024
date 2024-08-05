@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% include '_messages.html' %}
+<div class="container">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h2 class="text-center bg-info p-2"> Add Package</h2>
+        {% from "_formhelpers.html" import render_field %}
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{ render_field(form.name, class="form-control", placeholder="Add package name") }}
+            {{ render_field(form.price, class="form-control", placeholder="Add package price") }}
+            {{ render_field(form.discount, class="form-control", placeholder="Add package discount") }}
+            {{ render_field(form.stock, class="form-control", placeholder="Add package stock") }}
+
+            <label for="invest">Add Investment Package</label>
+            <select name="invest" id="invest" class="form-control" required>
+            <option value="{{package.invest.id}}">{{package.invest.name}} </option>
+                {%if invest in invests %}
+                <option value="{{invest.id}}">{{invest.name}}</option>
+                {% endfor %}
+            </select>
+
+             <label for="loan">Add Loan Package</label>
+            <select name="loan" id="loan" class="form-control" required>
+            <option value="{{package.loan.id}}">{{package.loan.name}} </option>
+                {%if loan in loans %}
+                <option value="{{loan.id}}">{{loan.name}}</option>
+                {% endfor %}
+            </select>
+
+
+            {{ render_field(form.colors, class="form-control", placeholder="Add package color") }}
+            {{ render_field(form.description, class="form-control", placeholder="Add package details", rows="10") }}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">{{ render_field(form.image_1, class="form-control") }}</div>
+                    <div class="col-md-4">{{ render_field(form.image_2, class="form-control") }}</div>
+                    <div class="col-md-4">{{ render_field(form.image_3, class="form-control") }}</div>
+<!--                     <div class="col-md-4"><input type="file" name="image_1" class="form-control"></div>-->
+<!--                    <div class="col-md-4"><input type="file" name="image_2" class="form-control"></div>-->
+<!--                    <div class="col-md-4"><input type="file" name="image_3" class="form-control"></div>-->
+
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-outline-info mt-4 mb-5" >Update Package </button>
+
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+{% endblock content %}

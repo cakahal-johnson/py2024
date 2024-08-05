@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+
+
+
+{% block content%}
+
+    <!-- PRE LOADER -->
+
+<div class="preloader">
+     <div class="sk-spinner sk-spinner-wordpress">
+          <span class="sk-inner-circle"></span>
+     </div>
+</div>
+
+<!-- Form Section -->
+
+    <div class="container justify-center jumbotron" style="margin-bottom: 2em; margin-top: 2em;">
+        <form method="POST" action="" novalidate>
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend >Book Your Food</legend>
+
+                <div class="form-group">
+                    {{ form.Foodname.label(class='form-control-label') }}
+                    {% if form.Foodname.errors %}
+                        {{ form.Foodname(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Foodname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.Foodname(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Foodtype.label(class='form-control-label') }}
+                    {% if form.Foodtype.errors %}
+                        {{ form.Foodtype(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Foodtype.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.Foodtype(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.FoodQuantity.label(class='form-control-label') }}
+                    {% if form.FoodQuantity.errors %}
+                        {{ form.FoodQuantity(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.FoodQuantity.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.FoodQuantity(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Address.label(class='form-control-label') }}
+                    {% if form.Address.errors %}
+                        {{ form.Address(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Address.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.Address(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.Delivery_Time.label(class='form-control-label') }}
+                    {% if form.Delivery_Time.errors %}
+                        {{ form.Delivery_Time(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.Delivery_Time.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.Delivery_Time(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class='btn btn-success') }}
+                </div>
+        </form>
+    </div>
+
+{% endblock content %}

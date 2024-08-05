@@ -1,0 +1,21 @@
+{% macro show_links() %}
+    <!--    <link rel="stylesheet" href="../assets/css/dashlite.css?ver=2.4.0">-->
+    <link rel="stylesheet" href="{{url_for('static', filename=('css/dashlite.css'))}}">
+<!--    <link rel="stylesheet" href="../scss/sweetalert.css">-->
+        <link rel="stylesheet" href="{{url_for('static', filename=('css/sweetalert.css'))}}">
+
+        <link rel="stylesheet" href="{{url_for('static', filename=('css/loader.css'))}}">
+
+
+    <link id="skin-default" rel="stylesheet" href="../assets/css/theme.css?ver=2.4.0">
+    <link id="skin-default" rel="stylesheet" href="../assets/css/theme.css?ver=2.4.0">
+<!--    <link href="../css/toastr.css" rel="stylesheet"/>-->
+        <link rel="stylesheet" href="{{url_for('static', filename=('css/toastr.css'))}}">
+{% endmacro %}
+
+
+<!--in the layout html import this macro with-->
+<!--at the top before html tag-->
+<!--{% from "showlinks.html" import show_links %}-->
+<!--then in the navbar section call the macro inside the nav div-->
+<!--{% show_links() %}-->

@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+                        {% include "_messages.html" %}
+            {% if invests %}
+            <h2 class="text-center mt-5" >Pick an Investment Package</h2>
+            <form action="" method="POST">
+                <input type="text" name="invest" class="form-control">
+                <input type="submit" value="Pick Invest Package" class="btn btn-info mt-2">
+
+            </form>
+            {% else %}
+            <h2 class="text-center mt-5" >Pick a Loan Package</h2>
+<!--            {% include "_messages.html" %}-->
+            <form action="" method="POST">
+                <input type="text" name="loan" class="form-control">
+                <input type="submit" value="Pick Loan Package" class="btn btn-info mt-2">
+
+            </form>
+            {% endif %}
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

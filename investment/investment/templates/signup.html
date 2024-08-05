@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+        <section class="signin-page account">
+              <div class="container">
+                    <div class="row">
+                      <div class="col-md-6 mx-auto">
+                        <div class="block text-center">
+                          <h2 class="text-center">Create Your Account</h2>
+                          <form class="text-left clearfix mt-30" action="" method="POST" enctype="multipart/form-data">
+                                {{ form.hidden_tag() }}
+                              <div class="form-group">
+                                  {% if form.Firstname.errors %}
+                                    <input type="text" name="Firstname" class="form-control is-invalid"  placeholder="First Name">
+                                        <div class="invalid-feedback">
+                                            {% for error in form.Firstname.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                  {% else %}
+                                        <input type="text" name="Firstname" class="form-control is-invalid"  placeholder="First Name">
+                                  {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                  {% if form.Lastname.errors %}
+                                    <input type="text" name="Lastname" class="form-control is-invalid"  placeholder="Last Name">
+                                        <div class="invalid-feedback">
+                                            {% for error in form.Lastname.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                  {% else %}
+                                        <input type="text" name="Lastname" class="form-control"  placeholder="Last Name">
+                                  {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                  {% if form.username.errors %}
+                                    <input type="text" name="username" class="form-control is-invalid"  placeholder="User Name">
+                                        <div class="invalid-feedback">
+                                            {% for error in form.username.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                  {% else %}
+                                        <input type="text" name="username" class="form-control"  placeholder="User Name">
+                                  {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                  {% if form.email.errors %}
+                                    <input type="text" name="email" class="form-control is-invalid"  placeholder="Email">
+                                        <div class="invalid-feedback">
+                                            {% for error in form.email.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                  {% else %}
+                                        <input type="text" name="email" class="form-control"  placeholder="Email">
+                                  {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                  {% if form.password.errors %}
+                                    <input type="text" name="password" class="form-control is-invalid"  placeholder="Password">
+                                        <div class="invalid-feedback">
+                                            {% for error in form.password.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                  {% else %}
+                                        <input type="text" name="password" class="form-control"  placeholder="Password">
+                                  {% endif %}
+                            </div>
+
+                            <div class="form-group">
+                                  {% if form.confirm_password.errors %}
+                                    <input type="text" name="confirm_password" class="form-control is-invalid"  placeholder="Confirm password">
+                                        <div class="invalid-feedback">
+                                            {% for error in form.confirm_password.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                  {% else %}
+                                        <input type="text" name="confirm_password" class="form-control"  placeholder="Confirm password">
+                                  {% endif %}
+                            </div>
+
+                            <button type="submit" class="btn btn-main text-center">Sign In</button>
+                          </form>
+                          <p class="mt-20">Already hava an account ?<a href="{{ url_for('login') }}"> Login</a></p>
+
+                        </div>
+                      </div>
+                    </div>
+              </div>
+        </section>
+
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+            <section class="signin-page account">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            <div class="block">
+                                <h2 class="text-center">Sign Into Your Account!</h2>
+
+                            <form class="text-left clearfix mt-30" action="" method="POST" enctype="multipart/form-data">
+                                {{ form.hidden_tag() }}
+
+                                <div class="form-group">
+                                      {% if form.email.errors %}
+                                        <input type="text" name="email" class="form-control is-invalid"  placeholder="Email">
+                                            <div class="invalid-feedback">
+                                                {% for error in form.email.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                      {% else %}
+                                            <input type="text" name="email" class="form-control"  placeholder="Email">
+                                      {% endif %}
+                                </div>
+
+                                <div class="form-group">
+                                      {% if form.password.errors %}
+                                        <input type="text" name="password" class="form-control is-invalid"  placeholder="Password">
+                                            <div class="invalid-feedback">
+                                                {% for error in form.password.errors %}
+                                                    <span>{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                      {% else %}
+                                            <input type="text" name="password" class="form-control"  placeholder="Password">
+                                      {% endif %}
+                                </div>
+
+                                <div class="form-check mb-2">
+                                    {{ form.remember(class="form-check-input") }}
+                                    {{ form.remember.label(class="form-check-label") }}
+                                </div>
+
+                                <button type="submit" class="btn btn-main text-center">Login</button>
+
+                          </form>
+                                <p class="mt-20">New in this site ?<a href="{{ url_for('signup')}}"> Create New Account</a></p>
+                                <p><a href="forget-password.html"> Forgot your password?</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+{% endblock content %}

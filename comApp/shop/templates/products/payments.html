@@ -1,0 +1,49 @@
+
+
+
+
+    <div class="container mt-4">
+        {% include '_messages.html' %}
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-sm">
+                    <thead>
+                        <th>S/n</th>
+                        <th>Name</th>
+                        <th>Color</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Discount</th>
+                        <th>Subtotal</th>
+
+                    </thead>
+                    <tbody>
+
+
+                    </tbody>
+                </table>
+<!--                HERE IS FOR CLEARING THE WHOLE CART TABLE BELOW -->
+                <table class="table table-sm">
+                    <tr>
+                            <td>
+                                <form action="/pay" method="POST">
+                                  <script
+                                    src="https://checkout.stripe.com/checkout.js"
+                                    class="stripe-button"
+                                    data-key="pk_test_qblFNYngBkEdjEZ16jxxoWSM"
+                                    data-name="T-shirt"
+                                    data-description="Comfortable cotton t-shirt"
+                                    data-amount="500"
+                                    data-currency="usd">
+                                  </script>
+                                </form>
+                            </td>
+
+                    </tr>
+
+                </table>
+
+
+            </div>
+        </div>
+    </div>

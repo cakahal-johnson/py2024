@@ -1,0 +1,76 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+*/
+a.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value span {
+    text-decoration: none;
+    color: black !important;
+}
+
+#language_div {
+    z-index: 1900;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+}
+
+.d-none {
+    display: none
+}
+
+[class*="dropdown-indicator"]::after {
+    border: none !important;
+
+    font-family: 'FontAwesome';
+    font-weight: bold;
+    font-style: normal;
+
+    vertical-align: middle;
+    content: "\f107";
+    margin-left: 0.25rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow::after {
+    font-family: 'FontAwesome';
+    content: "\f107";
+    line-height: 1;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow::after {
+    content: "\f107";
+}
+
+.form-control-number {
+    font-size: 20px;
+    padding: 1rem 1.25rem;
+    height: 66px;
+}
+
+.d-none {
+    display: none
+}
+
+.m-t-0 {
+    margin-top: 0
+}
+
+.buysell-overview-item {
+    padding: 8px;
+}
+
+@media (max-width: 1024px) {
+    .hidden-sm-down {
+        display: none !important
+    }
+}

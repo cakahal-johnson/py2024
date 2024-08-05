@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<form  method="POST"  action="">
+        {{ form.hidden_tag() }}
+
+
+    {% for message in form.Foodname.errors %}
+         <div>{{ message }}</div>
+    {% endfor %}
+
+     {% for message in form.Foodtype.errors %}
+         <div>{{ message }}</div>
+    {% endfor %}
+
+     {% for message in form.FoodQuantity.errors %}
+         <div>{{ message }}</div>
+    {% endfor %}
+
+     {% for message in form.Delivery_Time.errors %}
+         <div>{{ message }}</div>
+    {% endfor %}
+
+
+     {% for message in form.Address.errors %}
+         <div>{{ message }}</div>
+    {% endfor %}
+
+
+
+        <div class="form-group">
+            {{ form.Foodname.label(class="form-control") }}
+            {{ form.Foodname(class="form-control-lg") }}
+
+        </div>
+        <div class="form-group">
+            {{ form.Foodtype.label }}
+            {{ form.Foodtype(class="form-control-lg") }}
+
+        </div>
+
+
+        <div class="form-group">
+            {{ form.FoodQuantity.label }}
+            {{ form.FoodQuantity(class="form-control-lg") }}
+
+        </div>
+
+     <div class="form-group">
+            {{ form.Address.label }}
+            {{ form.Address(class="form-control-lg") }}
+
+        </div>
+
+     <div class="form-group">
+            {{ form.Delivery_Time.label }}
+            {{ form.Delivery_Time(class="form-control-lg") }}
+
+        </div>
+
+
+
+        <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+
+        </div>
+
+
+
+
+    </form>
+
+{% endblock content %}
